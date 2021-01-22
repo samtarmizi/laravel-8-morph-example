@@ -20,3 +20,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['namespace' => '\App\Http\Controllers'], function () {
+    Route::get('/posts', 'PostController@index')->name('posts');
+    Route::get('posts/create', 'PostController@create')->name('post.create');
+    Route::post('posts/create', 'PostController@store')->name('post.store');
+    Route::get('/posts/{post}', 'PostController@show')->name('post.show');
+
+    Route::get('/article/{post:slug}', 'PostController@show')->name('post.show-slug');
+
+    Route::post('/comments/store', 'CommentController@store')->name('comment.add');
+    Route::post('/comments/reply/store', 'CommentController@replyStore')->name('reply.add');
+});
