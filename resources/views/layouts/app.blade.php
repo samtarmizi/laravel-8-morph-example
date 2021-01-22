@@ -36,7 +36,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('posts') }}">{{ __('View All Posts') }}</a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('post.create') }}">{{ __('Create New Posts') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
