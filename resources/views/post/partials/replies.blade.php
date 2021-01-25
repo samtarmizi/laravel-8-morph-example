@@ -1,6 +1,6 @@
 @foreach($comments as $comment)
     <div class="display-comment">
-        <strong>{{ $comment->user->name }}</strong>
+        <strong>{{ $comment->user->name }}</strong> on {{ $comment->created_at->diffForHumans() }}({{ $comment->created_at->format('l d M Y ') }})
         <p>{{ $comment->comment }}</p>
         <a href="" id="reply"></a>
         <form method="post" action="{{ route('reply.add') }}">
