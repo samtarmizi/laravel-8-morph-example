@@ -32,14 +32,16 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('posts') }}">{{ __('View All Posts') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('post.create') }}">{{ __('Create New Posts') }}</a>
-                        </li>
-                    </ul>
+                    @can('isAdmin')
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('posts') }}">{{ __('View All Posts') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('post.create') }}">{{ __('Create New Posts') }}</a>
+                            </li>
+                        </ul>
+                    @endcan
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
